@@ -1,0 +1,26 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD)
+
+autonumber
+
+actor Administrator
+participant ":System" as System
+
+activate Administrator
+    Administrator -> System : initiates "List all vaccines" use case
+    activate System
+        System --> Administrator : presents the available vaccines and requests preferences
+    deactivate System
+
+    Administrator -> System : provides sorting and searching preferences
+    activate System
+        System --> Administrator : retrieves and displays the formatted vaccine list
+    deactivate System
+deactivate Administrator
+
+@enduml
+
