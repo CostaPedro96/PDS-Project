@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - Register SNS User Arrival
+
+actor Receptionist
+participant ":System" as System
+
+activate Receptionist
+    Receptionist -> System : initiates "Register SNS User Arrival" use case
+    activate System
+        System --> Receptionist : prompts for user arrival details
+    deactivate System
+
+    Receptionist -> System : provides SNS user details
+    activate System
+        System --> Receptionist : validates and asks for confirmation
+    deactivate System
+
+    Receptionist -> System : confirms user arrival
+    activate System
+        System --> Receptionist : records information and notifies success
+    deactivate System
+deactivate Receptionist
+
+@enduml
