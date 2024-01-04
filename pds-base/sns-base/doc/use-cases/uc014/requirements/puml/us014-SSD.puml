@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - Register Employee
+
+actor "Administrator" as Admin
+participant ":System" as System
+
+activate Admin
+    Admin -> System : initiates "Register Employee" use case
+    activate System
+        System --> Admin : prompts for employee details
+    deactivate System
+
+    Admin -> System : provides employee details
+    activate System
+        System --> Admin : validates and asks for confirmation
+    deactivate System
+
+    Admin -> System : confirms registration
+    activate System
+        System --> Admin : records information and notifies success
+    deactivate System
+deactivate Admin
+
+@enduml
