@@ -1,0 +1,33 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US041
+
+actor Nurse
+participant ":System" as System
+
+activate Nurse
+    Nurse -> System : identifies the SNS user and provides details
+    activate System
+        System --> Nurse : retrieves user information
+    deactivate System
+
+    Nurse -> System : records the vaccine type administered
+    activate System
+        System --> Nurse : prompts for vaccine type
+    deactivate System
+
+    Nurse -> System : records the administered dosage
+    activate System
+        System --> Nurse : prompts for dosage
+    deactivate System
+
+    Nurse -> System : confirms and completes the administration record
+    activate System
+        System --> Nurse : captures administration date and time, provides confirmation
+    deactivate System
+deactivate Nurse
+
+@enduml
