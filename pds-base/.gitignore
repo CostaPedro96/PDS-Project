@@ -1,0 +1,10 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+.idea_modules/
+out/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
