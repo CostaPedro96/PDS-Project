@@ -1,0 +1,20 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US015 - Get list of employees
+
+autonumber
+
+actor Administrator
+participant ":System" as System
+
+activate Administrator
+    Administrator -> System : initiates the process of getting a list of employees
+    activate System
+        System --> Administrator : retrieves and displays the list based on specified function/role
+    deactivate System
+deactivate Administrator
+
+@enduml
