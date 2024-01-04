@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD)
+
+autonumber
+
+actor Administrator
+participant ":System" as System
+
+activate Administrator
+    Administrator -> System : initiates the process of registering a new vaccination center
+    activate System
+        System --> Administrator : prompts for required attributes (Name, Location, Contact Information, Capacity)
+    deactivate System
+
+    Administrator -> System : enters the necessary information
+    activate System
+        System --> Administrator : validates the entered data and requests confirmation
+    deactivate System
+
+    Administrator -> System : confirms the registration
+    activate System
+        System --> Administrator : records the information and notifies the success of the operation
+    deactivate System
+deactivate Administrator
+
+@enduml
