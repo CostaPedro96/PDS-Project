@@ -1,0 +1,20 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US021
+
+actor Receptionist
+participant ":System" as System
+
+activate Receptionist
+Receptionist -> System: Schedule Vaccination for User
+activate System
+    System --> Receptionist: Request User Information and Preferred Time
+    Receptionist -> System: Provides User Information and Preferred Time
+    System --> Receptionist: Confirm Scheduled Vaccination
+deactivate System
+deactivate Receptionist
+
+@enduml
