@@ -1,0 +1,20 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US040 - List of users in the waiting room of a vaccination center
+
+autonumber
+
+actor Nurse
+participant ":Vaccination Center System" as System
+
+activate Nurse
+    Nurse -> System : requests to consult users in the waiting room
+    activate System
+        System --> Nurse : provides a list of users with details (name, scheduled time, vaccine type)
+    deactivate System
+deactivate Nurse
+
+@enduml
