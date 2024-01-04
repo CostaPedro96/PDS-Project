@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US030 - Vaccination scheduling
+
+actor "SNS User" as SNSUser
+participant ":System" as System
+
+activate SNSUser
+    SNSUser -> System: Initiates vaccination scheduling process
+    activate System
+        System --> SNSUser: Requests preferred vaccination center
+    deactivate System
+
+    SNSUser -> System: Provides preferred vaccination center
+    activate System
+        System --> SNSUser: Requests user's availability
+    deactivate System
+
+    SNSUser -> System: Provides availability details
+    activate System
+        System --> SNSUser: Confirms the scheduled vaccination
+    deactivate System
+deactivate SNSUser
+
+@enduml
