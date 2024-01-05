@@ -1,0 +1,99 @@
+@startuml
+
+!define ENTITY class
+!define ENDENTITY end class
+
+
+ENTITY VaccineType {
+    Code
+    ShortDescription
+    VaccineTechnology
+}
+
+ENTITY Vaccine {
+    Id
+    Name
+    Brand
+}
+
+ENTITY SNSUser {
+    Id
+    Name
+    BirthDate
+    Sex
+    PostalAddress
+    PhoneNumber
+    EmailAddress
+    CitizenCardNumber
+    SNSUserNumber
+}
+
+ENTITY VaccinationCenter {
+    Id
+    Name
+    Location
+    ContactInformation
+    Capacity
+}
+
+ENTITY Receptionist {
+    Name
+}
+
+ENTITY Nurse {
+    Name
+}
+
+ENTITY HealthCenter {
+    Id
+    Name
+}
+
+ENTITY VaccineAppointment {
+    Id
+    DateTime
+    // Other attributes of VaccineAppointment
+}
+
+
+ENTITY VaccinationCall {
+
+}
+
+
+ENTITY AdverseSymptomsRegister {
+
+}
+
+ENTITY Lot {
+
+}
+
+ENTITY Local {
+
+}
+
+
+VaccinationCenter "0" -- "0" Nurse
+VaccinationCenter "0" -- "0" Receptionist
+VaccineAppointment "1" -- "0..1" CheckIn
+VaccineAppointment "0" -- "0" SNSUser
+VaccineAppointment "0" -- "0" VaccinationCenter
+VaccinationCall "*" -- "1" Nurse
+VaccinationCall "0" -- "0" Local
+VaccinationCall "0" -- "0" RegisterVacination
+RegisterVacination "0" -- "0" AdverseSymptomsRegister
+RegisterVacination "0" -- "0" Vaccine
+CheckIn "1" -- "0" Receptionist
+CheckIn "0" -- "0" Local
+CheckIn "0" -- "0" VaccinationCall
+Vaccine "0" -- "0" Lot
+Vaccine "0" -- "0" VaccineType
+Local "0" -- "0" WaitingRoom
+Local "0" -- "0" VacinationRoom
+Local "0" -- "0" RecoveryRoom
+HealthCenter "0" -- "0" VaccinationCenter
+
+
+
+@enduml
